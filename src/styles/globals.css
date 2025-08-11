@@ -1,0 +1,380 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	/* default theme */
+	:root {
+		/*
+      - gray/natural colors for texts, borders and disabled elements.
+      - If required we can use as background too.
+    */
+		/* For rgb(255 255 255 / <alpha-value>) = #ffffff */
+		--gray-0: 255 255 255;
+		/* For rgb(250 250 250 / <alpha-value>) = #fafafa */
+		--gray-50: 250 250 250;
+		/* For rgb(241 241 241 / <alpha-value>) = #f1f1f1 */
+		--gray-100: 241 241 241;
+		/* For rgb(227 227 227 / <alpha-value>) = #e3e3e3 */
+		--gray-200: 227 227 227;
+		/* For rgb(223 223 223 / <alpha-value>) = #dfdfdf */
+		--gray-300: 223 223 223;
+		/* For rgb(146 146 146 / <alpha-value>) = #929292 */
+		--gray-400: 146 146 146;
+		/* For rgb(102 102 102 / <alpha-value>) = #666666 */
+		--gray-500: 102 102 102;
+		/* For rgb(72 72 72 / <alpha-value>) = #484848 */
+		--gray-600: 72 72 72;
+		/* For rgb(51 51 51 / <alpha-value>) = #333333 */
+		--gray-700: 51 51 51;
+		/* For rgb(34 34 34 / <alpha-value>) = #222222 */
+		--gray-800: 34 34 34;
+		/* For rgb(17 17 17 / <alpha-value>) = #111111 */
+		--gray-900: 17 17 17;
+		/* For rgb(0 0 0 / <alpha-value>) = #000000 */
+		--gray-1000: 0 0 0;
+
+		/* ----------------------------------- */
+		/* primary/brand colors */
+		/* ----------------------------------- */
+		/* For rgb(215 227 254 / <alpha-value>) = #D7E3FE */
+		--primary-lighter: 215 227 254;
+		/* For rgb(96 142 251 / <alpha-value>) = #608EFB */
+		--primary-light: 96 142 251;
+		/* For rgb(56 114 250 / <alpha-value>) = #3872FA */
+		--primary-default: 56 114 250;
+		/* For rgb(29 88 216 / <alpha-value>) = #1d58d8 */
+		--primary-dark: 29 88 216;
+
+		/* ----------------------------------- */
+		/* secondary colors */
+		/* ----------------------------------- */
+		/* For rgb(227 215 252 / <alpha-value>) = #e3d7fc */
+		--secondary-lighter: 227 215 252;
+		/* For rgb(138 99 210 / <alpha-value>) = #8a63d2 */
+		--secondary-light: 138 99 210;
+		/* For rgb(121 40 202 / <alpha-value>) = #7928ca */
+		--secondary-default: 121 40 202;
+		/* For rgb(76 40 137 / <alpha-value>) = #4c2889 */
+		--secondary-dark: 76 40 137;
+
+		/* ----------------------------------- */
+		/* red/error colors */
+		/* ----------------------------------- */
+		/* For rgb(247 212 214 / <alpha-value>) = #f7d4d6 */
+		--red-lighter: 247 212 214;
+		/* For rgb(255 26 26 / <alpha-value>) = #ff1a1a */
+		--red-light: 255 26 26;
+		/* For rgb(238 0 0 / <alpha-value>) = #e00 */
+		--red-default: 238 0 0;
+		/* For rgb(197 0 0 / <alpha-value>) = #c50000 */
+		--red-dark: 197 0 0;
+
+		/* ----------------------------------- */
+		/* orange/warning colors */
+		/* ----------------------------------- */
+		/* For rgb(255 239 207 / <alpha-value>) = #ffefcf */
+		--orange-lighter: 255 239 207;
+		/* For rgb(247 185 85 / <alpha-value>) = #f7b955 */
+		--orange-light: 247 185 85;
+		/* For rgb(245 166 35 / <alpha-value>) = #f5a623 */
+		--orange-default: 245 166 35;
+		/* For rgb(171 87 10 / <alpha-value>) = #ab570a */
+		--orange-dark: 171 87 10;
+
+		/* ----------------------------------- */
+		/* blue/info colors */
+		/* ----------------------------------- */
+		/* For rgb(211 229 255 / <alpha-value>) = #d3e5ff */
+		--blue-lighter: 211 229 255;
+		/* For rgb(50 145 255 / <alpha-value>) = #3291ff */
+		--blue-light: 50 145 255;
+		/* For rgb(0 112 243 / <alpha-value>) = #0070f3 */
+		--blue-default: 0 112 243;
+		/* For rgb(7 97 209 / <alpha-value>) = #0761d1 */
+		--blue-dark: 7 97 209;
+
+		/* ----------------------------------- */
+		/* green/success colors */
+		/* ----------------------------------- */
+		/* For rgb(185 249 207 / <alpha-value>) = #b9f9cf */
+		--green-lighter: 185 249 207;
+		/* For rgb(28 203 92 / <alpha-value>) = #06C167 */
+		--green-light: 6 193 103;
+		/* For rgb(17 168 73 / <alpha-value>) = #048848 */
+		--green-default: 4 136 72;
+		/* For rgb(17 132 60 / <alpha-value>) = #03703C */
+		--green-dark: 3 112 60;
+		--background: 0 0% 100%;
+		--foreground: 0 0% 3.9%;
+		--card: 0 0% 100%;
+		--card-foreground: 0 0% 3.9%;
+		--popover: 0 0% 100%;
+		--popover-foreground: 0 0% 3.9%;
+		--primary: 0 0% 9%;
+		--primary-foreground: 0 0% 98%;
+		--secondary: 0 0% 96.1%;
+		--secondary-foreground: 0 0% 9%;
+		--muted: 0 0% 96.1%;
+		--muted-foreground: 0 0% 45.1%;
+		--accent: 0 0% 96.1%;
+		--accent-foreground: 0 0% 9%;
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 0 0% 98%;
+		--border: 0 0% 89.8%;
+		--input: 0 0% 89.8%;
+		--ring: 0 0% 3.9%;
+		--chart-1: 12 76% 61%;
+		--chart-2: 173 58% 39%;
+		--chart-3: 197 37% 24%;
+		--chart-4: 43 74% 66%;
+		--chart-5: 27 87% 67%;
+		--radius: 0.5rem;
+	}
+
+	/* dark theme */
+	[data-theme="dark"] {
+		/*
+      - gray/natural color shades for texts, borders and disabled elements.
+      - If required we can use as background too.
+    */
+		/* For rgb(0 0 0 / <alpha-value>) = #000000  */
+		--gray-0: 0 0 0;
+		/* For rgb(17 17 17 / <alpha-value>) = #111111 */
+		--gray-50: 17 17 17;
+		/* For rgb(34 34 34 / <alpha-value>) = #222222 */
+		--gray-100: 34 34 34;
+		/* For rgb(51 51 51 / <alpha-value>) = #333333 */
+		--gray-200: 51 51 51;
+		/* For rgb(72 72 72 / <alpha-value>) = #484848 */
+		--gray-300: 72 72 72;
+		/* For rgb(102 102 102 / <alpha-value>) = #666666 */
+		--gray-400: 102 102 102;
+		/* For rgb(146 146 146 / <alpha-value>) = #929292 */
+		--gray-500: 146 146 146;
+		/* For rgb(162 162 162 / <alpha-value>) = #a2a2a2 */
+		--gray-600: 162 162 162;
+		/* For rgb(223 223 223 / <alpha-value>) = #dfdfdf */
+		--gray-700: 223 223 223;
+		/* For rgb(226 226 226 / <alpha-value>) = #e2e2e2 */
+		--gray-800: 226 226 226;
+		/* For rgb(241 241 241 / <alpha-value>) = #f1f1f1 */
+		--gray-900: 241 241 241;
+		/* For rgb(255 255 255 / <alpha-value>) = #ffffff */
+		--gray-1000: 255 255 255;
+
+		/* ----------------------------------- */
+		/* secondary colors */
+		/* ----------------------------------- */
+		/* For rgb(138 99 210 / <alpha-value>) = #7928ca */
+		--secondary-default: 138 99 210;
+		/* For rgb(121 40 202 / <alpha-value>) = #4c2889 */
+		--secondary-dark: 121 40 202;
+
+		/* ----------------------------------- */
+		/* red/error colors */
+		/* ----------------------------------- */
+		/* For rgb(253 226 221 / <alpha-value>) = #fde2dd */
+		--red-lighter: 253 226 221;
+		/* For rgb(242 65 34 / <alpha-value>) = #f24122 */
+		--red-light: 242 65 34;
+		/* For rgb(197 40 12 / <alpha-value>) = #c5280c */
+		--red-default: 197 40 12;
+		/* For rgb(159 32 10 / <alpha-value>) = #9f200a */
+		--red-dark: 159 32 10;
+		/* here you can customize other colors for dark theme if design required */
+	}
+
+	/* base style */
+	html {
+		@apply h-full font-montserrat antialiased;
+	}
+
+	#player {
+		@apply dark:bg-gray-50;
+	}
+
+	body {
+		@apply flex min-h-full flex-col overflow-x-hidden text-sm text-gray-600 dark:bg-gray-50;
+	}
+
+	input::-ms-clear,
+	input::-ms-reveal {
+		@apply hidden;
+	}
+
+	input[type="search"]::-webkit-search-cancel-button {
+		@apply hidden;
+	}
+
+	input[type="number"]::-webkit-inner-spin-button,
+	input[type="number"]::-webkit-outer-spin-button {
+		@apply m-0 appearance-none;
+	}
+
+	input[type="checkbox"]:checked {
+		@apply bg-none;
+	}
+
+	/* typography style for the Text component */
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-bold text-gray-900 dark:text-gray-700;
+	}
+
+	h1 {
+		@apply text-3xl dark:text-gray-800 2xl:text-[32px] 4xl:text-4xl;
+	}
+
+	h2 {
+		@apply text-2xl dark:text-gray-800 2xl:text-[26px] 4xl:text-3xl;
+	}
+
+	h3 {
+		@apply text-xl 2xl:text-[22px] 4xl:text-2xl;
+	}
+
+	h4 {
+		@apply text-lg 2xl:xl:text-xl;
+	}
+
+	h5 {
+		@apply text-base 2xl:text-lg;
+	}
+
+	h6 {
+		@apply text-sm 2xl:text-base;
+	}
+
+	q {
+		@apply text-lg;
+	}
+	.dark {
+		--background: 0 0% 3.9%;
+		--foreground: 0 0% 98%;
+		--card: 0 0% 3.9%;
+		--card-foreground: 0 0% 98%;
+		--popover: 0 0% 3.9%;
+		--popover-foreground: 0 0% 98%;
+		--primary: 0 0% 98%;
+		--primary-foreground: 0 0% 9%;
+		--secondary: 0 0% 14.9%;
+		--secondary-foreground: 0 0% 98%;
+		--muted: 0 0% 14.9%;
+		--muted-foreground: 0 0% 63.9%;
+		--accent: 0 0% 14.9%;
+		--accent-foreground: 0 0% 98%;
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 0 0% 98%;
+		--border: 0 0% 14.9%;
+		--input: 0 0% 14.9%;
+		--ring: 0 0% 83.1%;
+		--chart-1: 220 70% 50%;
+		--chart-2: 160 60% 45%;
+		--chart-3: 30 80% 55%;
+		--chart-4: 280 65% 60%;
+		--chart-5: 340 75% 55%;
+	}
+}
+
+@layer utilities {
+	.fill-opacity-10 {
+		fill-opacity: 0.1;
+	}
+
+	.fill-opacity-20 {
+		fill-opacity: 0.2;
+	}
+
+	.fill-opacity-30 {
+		fill-opacity: 0.3;
+	}
+
+	.fill-opacity-60 {
+		fill-opacity: 0.6;
+	}
+
+	/* animation delay required for the Loader component */
+	.animation-delay-200 {
+		animation-delay: 200ms;
+	}
+
+	.animation-delay-500 {
+		animation-delay: 500ms;
+	}
+
+	.animation-delay-700 {
+		animation-delay: 700ms;
+	}
+
+	/* this utility class required for the PinCode component */
+	.password-dot {
+		-webkit-text-security: disc;
+		-moz-text-security: circle;
+		text-security: circle;
+	}
+
+	/* experimental */
+	.card-shadow {
+		box-shadow:
+			0px 1px 0 rgba(0, 0, 0, 0.02),
+			0px 2px 6px rgba(0, 0, 0, 0.05);
+	}
+
+	.ql-editor {
+		@apply h-40 overflow-y-auto;
+	}
+}
+
+/* ................................................... */
+/* Change autocomplete styles in WebKit */
+/* ................................................... */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+	-webkit-text-fill-color: currentColor;
+	-webkit-box-shadow: 0 0 0px 1000px transparent inset;
+	transition: background-color 5000s ease-in-out 0s;
+}
+
+/* OTP input box customization */
+.otp-input input {
+	@apply min-h-[42px] min-w-[65px] rounded-md border p-1 leading-[48px];
+}
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
+}
+
+@layer base {
+	:root {
+		--chart-1: oklch(0.646 0.222 41.116);
+		--chart-2: oklch(0.6 0.118 184.704);
+		--chart-3: oklch(0.398 0.07 227.392);
+		--chart-4: oklch(0.828 0.189 84.429);
+		--chart-5: oklch(0.769 0.188 70.08);
+	}
+
+	.dark {
+		--chart-1: oklch(0.488 0.243 264.376);
+		--chart-2: oklch(0.696 0.17 162.48);
+		--chart-3: oklch(0.769 0.188 70.08);
+		--chart-4: oklch(0.627 0.265 303.9);
+		--chart-5: oklch(0.645 0.246 16.439);
+	}
+}
