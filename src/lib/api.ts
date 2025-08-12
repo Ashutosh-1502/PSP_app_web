@@ -30,6 +30,8 @@ apiClient.interceptors.response.use(
 		const status = error?.response?.status;
 		const errorMessage = error?.response?.data?.message?.toLowerCase() || "";
 
+		console.log("error message in api.ts", status, errorMessage);
+
 		// Check for 401 status and token-related errors
 		if (status === 401 && errorMessage.includes("invalid token")) {
 			console.log("api.ys file called");

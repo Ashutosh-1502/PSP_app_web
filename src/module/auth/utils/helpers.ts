@@ -1,5 +1,5 @@
 import { COOKIES, ROLES } from "@/types";
-import type {CookiesDataType } from "@/module/auth/types";
+import type { CookiesDataType } from "@/module/auth/types";
 import Cookies from "js-cookie";
 import { routes } from "@/config/routes";
 
@@ -33,14 +33,18 @@ export function setCookies(data: CookiesDataType) {
 export function clearCookies() {
 	Cookies.remove(COOKIES.TOKEN);
 	Cookies.remove(COOKIES.USER_TYPE);
-	Cookies.remove(COOKIES.COMPANY_REF);
-	console.log("clear cookie is executed")
+	if (Cookies.get(COOKIES.COMPANY_REF)) {
+		Cookies.remove(COOKIES.COMPANY_REF);
+	}
+	console.log("clear cookie is executed");
 }
 
 export function getCookies() {
+	let companyRef: string | undefined;
 	const token = Cookies.get(COOKIES.TOKEN);
 	const userType = Cookies.get(COOKIES.USER_TYPE);
-	const companyRef = Cookies.get(COOKIES.COMPANY_REF);
-	console.log(userType, companyRef, token);
+	if (Cookies.get(COOKIES.COMPANY_REF)) {
+		companyRef = Cookies.get(COOKIES.COMPANY_REF);
+	}
 	return { userType, companyRef, token };
 }
