@@ -36,9 +36,9 @@ export default function SignInForm() {
 		useLoginMutation.mutate(userData, {
 			onSuccess: (data) => {
 				const {
-					user: { roles, companyRef },
+					user: { roles },
 				} = data;
-				setCookies({ user: { roles, companyRef } });
+				setCookies({ user: { roles } });
 				toast.success(<p>Log In Success!</p>, {
 					duration: 2000,
 				});

@@ -25,26 +25,15 @@ export function redirectUser(userType: string) {
 export function setCookies(data: CookiesDataType) {
 	Cookies.set(COOKIES.USER_TYPE, data.user.roles, { expires: 1 });
 	if (data.token) Cookies.set(COOKIES.TOKEN, data.token, { expires: 1 });
-	if (data.user.roles !== ROLES.ADMIN && data.user.companyRef) {
-		Cookies.set(COOKIES.COMPANY_REF, data.user.companyRef, { expires: 1 });
-	}
 }
 
 export function clearCookies() {
 	Cookies.remove(COOKIES.TOKEN);
 	Cookies.remove(COOKIES.USER_TYPE);
-	if (Cookies.get(COOKIES.COMPANY_REF)) {
-		Cookies.remove(COOKIES.COMPANY_REF);
-	}
-	console.log("clear cookie is executed");
 }
 
 export function getCookies() {
-	let companyRef: string | undefined;
 	const token = Cookies.get(COOKIES.TOKEN);
 	const userType = Cookies.get(COOKIES.USER_TYPE);
-	if (Cookies.get(COOKIES.COMPANY_REF)) {
-		companyRef = Cookies.get(COOKIES.COMPANY_REF);
-	}
-	return { userType, companyRef, token };
+	return { userType, token };
 }
