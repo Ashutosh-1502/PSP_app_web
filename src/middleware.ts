@@ -8,12 +8,7 @@ interface Permissions {
 }
 
 const permissions: Permissions = {
-	subscriptions: [ROLES.SUPER_ADMIN, ROLES.ADMIN],
-	company: [ROLES.SUPER_ADMIN],
-	products: [ROLES.SUPER_ADMIN, ROLES.ADMIN, ROLES.USER],
-	teams: [ROLES.SUPER_ADMIN, ROLES.ADMIN],
-	"profile-settings": [ROLES.USER, ROLES.ADMIN, ROLES.SUPER_ADMIN],
-	system: [ROLES.SYSTEM],
+	dashboard: [ROLES.SUPER_ADMIN],
 };
 
 function checkAuthorization(request: NextRequest, requiredRoles: string[]): boolean {
@@ -45,29 +40,29 @@ export function middleware(request: NextRequest) {
 		return Redirect();
 	}
 
-	// if (!token && !isPublicPath) {
-	// 	// If trying to access private paths without a token, redirect to signin
-	// 	return Redirect();
-	// }
+	if (!token && !isPublicPath) {
+		// If trying to access private paths without a token, redirect to signin
+		return Redirect();
+	}
 
-	// if (
-	// 	// Redirect users to their designated dashboards if they attempt to access unauthorized routes.
-	// 	(token && path.startsWith("/admin") && userType === ROLES.USER) ||
-	// 	(token && path.startsWith("/system") && userType !== ROLES.SYSTEM)
-	// ) {
-	// 	return Redirect();
-	// }
+	if (
+		// Redirect users to their designated dashboards if they attempt to access unauthorized routes.
+		(token && path.startsWith("/admin") && userType === ROLES.USER) ||
+		(token && path.startsWith("/system") && userType !== ROLES.SYSTEM)
+	) {
+		return Redirect();
+	}
 
-	// // Additional authorization checks
-	// // Endpoint extraction
-	// const pathSegments = path.split("/");
-	// const endpoint = pathSegments.length >= 3 ? pathSegments[2] : null;
+	// Additional authorization checks
+	// Endpoint extraction
+	const pathSegments = path.split("/");
+	const endpoint = pathSegments.length >= 3 ? pathSegments[2] : null;
 
-	// // Authorization using the extracted endpoint
-	// const allowedRoles = endpoint ? permissions[endpoint] : undefined;
-	// if (allowedRoles && !checkAuthorization(request, allowedRoles)) {
-	// 	return Redirect();
-	// }
+	// Authorization using the extracted endpoint
+	const allowedRoles = endpoint ? permissions[endpoint] : undefined;
+	if (allowedRoles && !checkAuthorization(request, allowedRoles)) {
+		return Redirect();
+	}
 
 	// Default behavior: allow the request to proceed
 	return NextResponse.next();
