@@ -47,20 +47,8 @@ export function middleware(request: NextRequest) {
 
 	if (
 		// Redirect users to their designated dashboards if they attempt to access unauthorized routes.
-		(token && path.startsWith("/admin") && userType === ROLES.USER) ||
-		(token && path.startsWith("/system") && userType !== ROLES.SYSTEM)
+		(token && path.startsWith("/admin") && userType === ROLES.USER)
 	) {
-		return Redirect();
-	}
-
-	// Additional authorization checks
-	// Endpoint extraction
-	const pathSegments = path.split("/");
-	const endpoint = pathSegments.length >= 3 ? pathSegments[2] : null;
-
-	// Authorization using the extracted endpoint
-	const allowedRoles = endpoint ? permissions[endpoint] : undefined;
-	if (allowedRoles && !checkAuthorization(request, allowedRoles)) {
 		return Redirect();
 	}
 
