@@ -9,7 +9,7 @@ export default function IndexPage() {
 	const router = useRouter();
 	const { useGetUserData } = useProfileAPI();
 	const { data: userData } = useGetUserData();
-	console.log(userData?.roles);
+	console.log("userData",userData);
 	useEffect(() => {
 		const redirectTimer = setTimeout(() => {
 			const redirectRoute = redirectUser(userData?.roles as string);
