@@ -18,7 +18,7 @@ function checkAuthorization(request: NextRequest, requiredRoles: string[]): bool
 
 export function middleware(request: NextRequest) {
 	const path = request.nextUrl.pathname;
-	const publicPaths = ["/signin", "/signup", "/forgot-password", "/system/signin"];
+	const publicPaths = ["/signin", "/signup", "/protein-structure-prediction"];
 	const isPublicPath = publicPaths.includes(path);
 	const token = request.cookies.get(COOKIES.TOKEN)?.value || "";
 	const userType = request.cookies.get(COOKIES.USER_TYPE)?.value || "";
@@ -37,11 +37,6 @@ export function middleware(request: NextRequest) {
 
 	if (token && isPublicPath) {
 		// If trying to access public paths with a token, redirect to dashboard
-		return Redirect();
-	}
-
-	if (!token && !isPublicPath) {
-		// If trying to access private paths without a token, redirect to signin
 		return Redirect();
 	}
 
