@@ -34,6 +34,7 @@ export function clearCookies() {
 	Cookies.remove(COOKIES.TOKEN);
 	Cookies.remove(COOKIES.USER_TYPE);
 	Cookies.remove(COOKIES.COMPANY_REF);
+	console.log("clear cookie is executed")
 }
 
 export function getCookies() {
