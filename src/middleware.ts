@@ -29,7 +29,7 @@ export function middleware(request: NextRequest) {
 				case ROLES.ADMIN:
 					return NextResponse.redirect(new URL(routes.admin.dashboard, request.url));
 				case ROLES.USER:
-					return NextResponse.redirect(new URL(routes.proteinSearch, request.url));
+					return NextResponse.redirect(new URL(routes.proteinViewer, request.url));
 			}
 		}
 		return NextResponse.redirect(new URL(routes.signIn, request.url));
