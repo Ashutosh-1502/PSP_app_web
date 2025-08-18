@@ -21,7 +21,7 @@ import { History, Mic } from "lucide-react";
 export const MenuItems: Record<USER_TYPE, MenuItem[]> = {
 	USER: [
 		{
-			href: routes.proteinSearch,
+			href: routes.proteinViewer,
 			name: "Protein Viewer",
 			Icon: <RxMagnifyingGlass className="text-primary-foreground w-5 h-5"/>,
 		},
@@ -43,7 +43,7 @@ export const MenuItems: Record<USER_TYPE, MenuItem[]> = {
 			Icon: <RxDashboard className="text-primary-foreground w-5 h-5" />,
 		},
 		{
-			href: routes.proteinSearch,
+			href: routes.proteinViewer,
 			name: "Protein Viewer",
 			Icon: <RxMagnifyingGlass className="text-primary-foreground w-5 h-5"/>,
 		},

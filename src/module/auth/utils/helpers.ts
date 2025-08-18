@@ -13,7 +13,7 @@ export function redirectUser(userType: string) {
 		case ROLES.ADMIN:
 			return routes.admin.dashboard;
 		case ROLES.USER:
-			return routes.proteinSearch;
+			return routes.proteinViewer;
 		default:
 			return routes.signIn;
 	}
