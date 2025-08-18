@@ -8,5 +8,5 @@ export const routes = {
 		searchHistory: "/user/search-history",
 		announcement: "/user/announcement"
 	},
-	proteinSearch: "/protein-structure-prediction"
+	proteinSearch: "/protein-viewer"
 };

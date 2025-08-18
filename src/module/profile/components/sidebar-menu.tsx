@@ -22,7 +22,7 @@ export const MenuItems: Record<USER_TYPE, MenuItem[]> = {
 	USER: [
 		{
 			href: routes.proteinSearch,
-			name: "Protein Search",
+			name: "Protein Viewer",
 			Icon: <RxMagnifyingGlass className="text-primary-foreground w-5 h-5"/>,
 		},
 		{
@@ -44,7 +44,7 @@ export const MenuItems: Record<USER_TYPE, MenuItem[]> = {
 		},
 		{
 			href: routes.proteinSearch,
-			name: "Protein Search",
+			name: "Protein Viewer",
 			Icon: <RxMagnifyingGlass className="text-primary-foreground w-5 h-5"/>,
 		},
 		{

@@ -10,8 +10,8 @@ import { Montserrat } from "next/font/google";
 import Script from "next/script";
 
 const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-montserrat",
+	subsets: ["latin"],
+	variable: "--font-montserrat",
 });
 
 const avenirNext = localFont({ src: "../../public/fonts/AvenirNext-Regular.woff2", variable: "--font-avenir-next" });
@@ -30,15 +30,10 @@ export default function RootLayout({ children }: ChildProps) {
 	return (
 		<html lang="en" className={montserrat.variable}>
 			<body>
-				<Script
-				src="https://3Dmol.csb.pitt.edu/build/3Dmol-min.js"
-				strategy="afterInteractive"
-			/>
+				<Script src="https://3Dmol.csb.pitt.edu/build/3Dmol-min.js" strategy="afterInteractive" />
 				<Provider>
 					<LoaderProvider>
-						<AnimationWrapper>
-						{children}
-						</AnimationWrapper>
+						<AnimationWrapper>{children}</AnimationWrapper>
 						<Toaster />
 						<FullScreenLoader />
 					</LoaderProvider>

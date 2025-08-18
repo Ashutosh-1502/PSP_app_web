@@ -101,7 +101,7 @@ export default function NewAnnouncement({ refetchDashboardData }: { refetchDashb
 					<form onSubmit={(event) => void handleSubmit(onSubmit)(event)} className="space-y-4 py-4">
 						{/* Title */}
 						<div className="relative flex flex-col space-y-2">
-							<Label className="text-sm text-gray-500">Reward Name</Label>
+							<Label className="text-sm text-gray-500">Announcement title</Label>
 							<Input
 								type="text"
 								{...register("title")}
